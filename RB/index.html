@@ -7,118 +7,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --dark-green: #1a472a;
-            --card-red: #d32f2f;
-            --bg-cream: #fdfaf5;
-        }
-
+        :root { --dark-green: #1a472a; --card-red: #d32f2f; --bg-cream: #fdfaf5; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { 
-            font-family: 'Hind Vadodara', sans-serif; 
-            background-color: var(--bg-cream); 
-            color: #333;
-            padding-bottom: 100px;
-        }
-
-        header {
-            background: white;
-            padding: 20px 15px;
-            text-align: center;
-            border-bottom: 4px solid var(--dark-green);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .brand-title {
-            color: var(--card-red);
-            font-size: 30px;
-            font-weight: 800;
-            line-height: 1.2;
-        }
-
-        .profile-box {
-            display: flex;
-            align-items: center;
-            background: white;
-            margin: 15px;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
-
-        .profile-box img {
-            width: 85px;
-            height: 85px;
-            border: 2px solid var(--dark-green);
-            border-radius: 4px;
-            object-fit: cover;
-        }
-
+        body { font-family: 'Hind Vadodara', sans-serif; background-color: var(--bg-cream); color: #333; padding-bottom: 100px; }
+        header { background: white; padding: 20px 15px; text-align: center; border-bottom: 4px solid var(--dark-green); box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: relative; }
+        .brand-title { color: var(--card-red); font-size: 30px; font-weight: 800; line-height: 1.2; }
+        .profile-box { display: flex; align-items: center; background: white; margin: 15px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; }
+        .profile-box img { width: 85px; height: 85px; border: 2px solid var(--dark-green); border-radius: 4px; object-fit: cover; }
         .profile-details { margin-left: 15px; }
-        .profile-details h2 { font-size: 20px; color: #000; }
-        .profile-details p { font-size: 14px; color: var(--dark-green); font-weight: 600; }
-
-        .price-highlight {
-            background: var(--dark-green);
-            color: white;
-            margin: 15px;
-            padding: 20px;
-            border-radius: 4px;
-            text-align: center;
-            border-left: 10px solid var(--border-gold);
-        }
-
-        .price-highlight h3 { font-size: 16px; opacity: 0.9; font-weight: 400; }
+        .price-highlight { background: var(--dark-green); color: white; margin: 15px; padding: 20px; border-radius: 4px; text-align: center; border-left: 10px solid #ffd700; }
         .big-rate { font-size: 42px; font-weight: 800; color: #ffd700; margin: 5px 0; }
-
         .history-section { margin: 15px; background: white; border: 1px solid #ccc; }
-        .history-title { 
-            background: #eee; 
-            padding: 10px; 
-            font-weight: 700; 
-            border-bottom: 2px solid var(--dark-green); 
-            text-align: center;
-        }
-
+        .history-title { background: #eee; padding: 10px; font-weight: 700; border-bottom: 2px solid var(--dark-green); text-align: center; }
         table { width: 100%; border-collapse: collapse; }
         th, td { padding: 12px 8px; text-align: center; border-bottom: 1px solid #eee; font-size: 15px; }
-        th { font-size: 13px; color: #666; background: #f9f9f9; }
         .price-text { font-weight: 700; color: var(--dark-green); }
-
-        .slogan {
-            text-align: center;
-            font-weight: 700;
-            color: var(--card-red);
-            margin: 20px 0;
-            font-size: 16px;
-        }
-
-        .action-btns {
-            position: fixed;
-            bottom: 0; width: 100%;
-            display: flex;
-            padding: 10px;
-            background: white;
-            gap: 10px;
-            box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
-        }
-
-        .btn {
-            flex: 1;
-            padding: 15px 5px;
-            text-align: center;
-            text-decoration: none;
-            color: white;
-            font-weight: 700;
-            border-radius: 6px;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
+        .action-btns { position: fixed; bottom: 0; width: 100%; display: flex; padding: 10px; background: white; gap: 10px; box-shadow: 0 -3px 10px rgba(0,0,0,0.1); }
+        .btn { flex: 1; padding: 15px 5px; text-align: center; text-decoration: none; color: white; font-weight: 700; border-radius: 6px; display: flex; align-items: center; justify-content: center; gap: 8px; }
         .btn-phone { background: var(--dark-green); flex: 0.4; }
         .btn-whatsapp { background: #25D366; flex: 1; }
+        
+        /* Admin UI */
+        #admin-panel { display: none; background: #fff; margin: 15px; padding: 15px; border: 2px dashed var(--dark-green); border-radius: 8px; }
+        .admin-input { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 4px; }
     </style>
 </head>
 <body>
@@ -126,104 +37,88 @@
 <header>
     <div class="brand-title">આર.બી. ટ્રેડિંગ કાું.</div>
     <div style="font-weight: 600; color: #555;">માર્કેટ યાર્ડ, બોડેલી</div>
+    <i class="fas fa-lock" onclick="checkAdmin()" style="position: absolute; right: 20px; top: 25px; color: #ccc; cursor: pointer;"></i>
 </header>
 
-<div class="profile-box">
-    <img src="Krishna.png" alt="Chandubhai">
-    <div class="profile-details">
-        <h2>ચંદુભાઈ</h2>
-        <p>કપાસ-મગફળી ના દલાલ</p>
-        <div style="font-size: 13px; margin-top: 4px; color: var(--card-red); font-weight: bold;">|| ૧૯૯૫ થી આપની સેવામાં ||</div>
-    </div>
+<div id="admin-panel">
+    <h3 style="color: var(--dark-green); margin-bottom: 10px;">🛠️ ભાવ અપડેટ કરો</h3>
+    <input type="number" id="new-kapas" class="admin-input" placeholder="કપાસનો નવો ભાવ">
+    <input type="number" id="new-magfali" class="admin-input" placeholder="મગફળીનો નવો ભાવ">
+    <button onclick="submitPrice()" style="width: 100%; padding: 12px; background: var(--dark-green); color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">Update Now</button>
 </div>
-
-<div style="background: white; margin: 0 15px 15px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-    <a href="tel:9825793226" style="text-decoration: none; color: #333; text-align: center; border-right: 1px solid #eee;">
-        <div style="font-size: 12px; color: var(--dark-green); font-weight: bold;">ઈશ્વરભાઈ</div>
-        <div style="font-size: 15px; font-weight: 700; color: var(--card-red);">📞 98257 93226</div>
-    </a>
-    <a href="tel:9825793229" style="text-decoration: none; color: #333; text-align: center;">
-        <div style="font-size: 12px; color: var(--dark-green); font-weight: bold;">ચંદુભાઈ</div>
-        <div style="font-size: 15px; font-weight: 700; color: var(--card-red);">📞 98257 93229</div>
-    </a>
-</div>
-
-<div class="profile-box" style="margin-top: 5px; border-left: 5px solid var(--border-gold);">
-    <img src="office.png" alt="Office Image" style="width: 100px; height: 100px; object-fit: cover; border-radius: 4px;">
-    
-    <div class="profile-details">
-        <h2 style="font-size: 18px; color: var(--dark-green);"><i class="fas fa-location-dot"></i> અમારી ઓફિસ</h2>
-        <a href="https://maps.google.com/?q=Market+Yard+Bodeli" target="_blank" style="text-decoration: none; color: inherit;">
-            <p style="font-size: 14px; font-weight: 700; margin-top: 2px;">ઓફિસ નં. ૧૧, માર્કેટ યાર્ડ,</p>
-            <p style="font-size: 14px; font-weight: 700;">બોડેલી - ૩૯૧૧૩૫</p>
-            <div style="font-size: 12px; color: #1a73e8; font-weight: bold; margin-top: 5px;">🗺️ મેપમાં રસ્તો જુઓ</div>
-        </a>
-    </div>
-</div>
-
-<div class="slogan">"પ્રામાણિકતા એ જ અમારો વેપાર"</div>
 
 <div class="price-highlight">
-    <h3>આજનો કપાસનો ભાવ (૨૦ કિલો)</h3>
-    <div class="big-rate">₹ 1,585</div>
-    <div style="font-size: 13px;">અપડેટ: ૨૮-૧૨-૨૦૨૫</div>
+    <h3 id="current-date-label">આજનો કપાસનો ભાવ (૨૦ કિલો)</h3>
+    <div class="big-rate" id="today-kapas">₹ ...</div>
+    <div style="font-size: 13px;" id="update-time">અપડેટ થઈ રહ્યું છે...</div>
 </div>
 
 <div class="history-section">
-    <div class="history-title">📅 છેલ્લા ૧ અઠવાડિયાના ભાવ</div>
+    <div class="history-title">📅 છેલ્લા ભાવની માહિતી</div>
     <table>
         <thead>
-            <tr>
-                <th>તારીખ</th>
-                <th>કપાસ</th>
-                <th>મગફળી</th>
-            </tr>
+            <tr><th>તારીખ</th><th>કપાસ</th><th>મગફળી</th></tr>
         </thead>
-        <tbody>
-            <tr><td>૨૭ ડિસે</td><td class="price-text">1570</td><td>1410</td></tr>
-            <tr><td>૨૬ ડિસે</td><td class="price-text">1560</td><td>1400</td></tr>
-            <tr><td>૨૫ ડિસે</td><td class="price-text">1565</td><td>1405</td></tr>
-            <tr><td>૨૪ ડિસે</td><td class="price-text">1550</td><td>1390</td></tr>
-            <tr><td>૨૩ ડિસે</td><td class="price-text">1545</td><td>1385</td></tr>
-            <tr><td>૨૨ ડિસે</td><td class="price-text">1535</td><td>1380</td></tr>
-            <tr><td>૨૧ ડિસે</td><td class="price-text">1530</td><td>1375</td></tr>
-        </tbody>
+        <tbody id="history-table-body">
+            </tbody>
     </table>
-</div>
-<div style="margin: 15px; text-align: center;">
-    <p style="font-size: 13px; color: #666; margin-bottom: 10px;">⚠️ નોંધ: ભાવ કપાસની ગુણવત્તા મુજબ રહેશે.</p>
-    
-    <a href="whatsapp://send?text=આર.બી. ટ્રેડિંગ કાું. બોડેલી - આજના કપાસના ભાવ જોવા માટે અહીં ક્લિક કરો: [તમારી_લિંક]" 
-       style="display: inline-block; background: #e7f3ff; color: #1a73e8; padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 14px; border: 1px solid #1a73e8;">
-        <i class="fab fa-whatsapp"></i> મિત્રોને મોકલો
-    </a>
 </div>
 
 <div class="action-btns">
-    <a href="tel:9825793229" class="btn btn-phone">📞 ફોન કરો</a>
-    <a href="https://wa.me/919825793226?text=મને%20રોજની%20ભાવની%20માહિતી%20મોકલો" class="btn btn-whatsapp">
-        <i class="fab fa-whatsapp"></i> રોજની માહિતી માટે જોડાવો
-    </a>
+    <a href="tel:9825793229" class="btn btn-phone">📞 ફોન</a>
+    <a href="https://wa.me/919825793226" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> માહિતી માટે જોડાવો</a>
 </div>
+
 <script>
-async function loadData() {
-    const res = await fetch('/api/db');
-    const data = await res.json();
-    
-    // આજના ભાવ અપડેટ કરો
-    if (data.prices.length > 0) {
-        document.querySelector('.big-rate').innerText = "₹ " + data.prices[0].kapas;
+const ADMIN_PASS = "RB@2025";
+
+// એડમિન ચેક કરવા માટે
+function checkAdmin() {
+    const p = prompt("પાસવર્ડ નાખો:");
+    if (p === ADMIN_PASS) {
+        document.getElementById('admin-panel').style.display = 'block';
+    } else {
+        alert("ખોટો પાસવર્ડ!");
     }
 }
 
-// એડમિન દ્વારા ભાવ અપડેટ કરવાનું ફંક્શન
-async function updatePrice(k, m) {
-    await fetch('/api/db', {
+// ડેટા લોડ કરવા માટે
+async function loadData() {
+    try {
+        const res = await fetch('/api/db');
+        const data = await res.json();
+        
+        if (data.prices && data.prices.length > 0) {
+            const latest = data.prices[0];
+            document.getElementById('today-kapas').innerText = "₹ " + latest.kapas;
+            document.getElementById('update-time').innerText = "અપડેટ: " + latest.date_text;
+            
+            let html = "";
+            data.prices.forEach(row => {
+                html += `<tr><td>${row.date_text}</td><td class="price-text">${row.kapas}</td><td>${row.magfali}</td></tr>`;
+            });
+            document.getElementById('history-table-body').innerHTML = html;
+        }
+    } catch (e) { console.error("Load error", e); }
+}
+
+// ભાવ સબમિટ કરવા
+async function submitPrice() {
+    const k = document.getElementById('new-kapas').value;
+    const m = document.getElementById('new-magfali').value;
+    
+    if(!k || !m) return alert("બંને ભાવ નાખો");
+
+    const res = await fetch('/api/db', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ type: 'price', kapas: k, magfali: m })
+        body: JSON.stringify({ kapas: k, magfali: m })
     });
-    loadData();
+
+    if(res.ok) {
+        alert("ભાવ સફળતાપૂર્વક બદલાઈ ગયા!");
+        location.reload();
+    }
 }
 
 window.onload = loadData;
