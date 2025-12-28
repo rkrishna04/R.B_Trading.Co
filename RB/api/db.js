@@ -1,21 +1,19 @@
 import { neon } from '@neondatabase/serverless';
 
 export default async function handler(req, res) {
-  const sql = neon(process.env.DATABASE_URL);
-
-  if (req.method === 'GET') {
-    const prices = await sql`SELECT * FROM rb_prices ORDER BY updated_at DESC LIMIT 7`;
-    const farmers = await sql`SELECT * FROM rb_farmers`;
-    return res.status(200).json({ prices, farmers });
-  }
-
-  if (req.method === 'POST') {
-    const { type, kapas, magfali, name, village, phone } = req.body;
-    if (type === 'price') {
-      await sql`INSERT INTO rb_prices (kapas, magfali) VALUES (${kapas}, ${magfali})`;
-    } else if (type === 'farmer') {
-      await sql`INSERT INTO rb_farmers (name, village, phone) VALUES (${name}, ${village}, ${phone})`;
+    const sql = neon(process.env.DATABASE_URL);
+    try {
+        if (req.method === 'GET') {
+            const prices = await sql`SELECT * FROM rb_prices ORDER BY id DESC LIMIT 7`;
+            return res.status(200).json({ prices });
+        }
+        if (req.method === 'POST') {
+            const { kapas, magfali } = req.body;
+            const date = new Date().toLocaleDateString('gu-IN');
+            await sql`INSERT INTO rb_prices (date_text, kapas, magfali) VALUES (${date}, ${kapas}, ${magfali})`;
+            return res.status(200).json({ success: true });
+        }
+    } catch (e) {
+        return res.status(500).json({ error: e.message });
     }
-    return res.status(200).json({ success: true });
-  }
 }
